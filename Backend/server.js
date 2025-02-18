@@ -6,7 +6,7 @@ const cors = require("cors");
 const dotenv = require('dotenv');
 dotenv.config();
 const uri=process.env.MONGO_URI
-const port=process.env.Port || 3030
+const port = process.env.PORT || 3030; // ✅ Fixed "Port" issue
 console.log(uri)
 console.log(port)
 const errorHandler = require('./middleware/errorHandler');
