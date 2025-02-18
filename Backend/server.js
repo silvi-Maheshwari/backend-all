@@ -6,7 +6,7 @@ const cors = require("cors");
 const dotenv = require('dotenv');
 dotenv.config();
 const uri=process.env.MONGO_URI
-const port=process.env.port
+const port=process.env.Port
 console.log(uri)
 console.log(port)
 const errorHandler = require('./middleware/errorHandler');
@@ -20,14 +20,14 @@ app.use(errorHandler)
 
 const connectDb= async ()=>{
     try{
-  await  mongoose.connect('mongodb+srv://maheshwarisilvi98:silvi123@cluster0.jftpm.mongodb.net/books?retryWrites=true&w=majority')
+  await  mongoose.connect(uri)
   console.log('Database is connected')
     }catch(err){
         console.log(err)
     }
 }
 
-app.listen(3030,()=>{
+app.listen(port,()=>{
     connectDb()
     console.log('server is connected')
 })
